@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Komtek</name>
+    </assembly>
+    <members>
+        <member name="T:Komtek.Controllers.ReportsController">
+            <summary>
+            Область работы с отчетами
+            </summary>
+        </member>
+        <member name="M:Komtek.Controllers.ReportsController.Get(System.Int32,Komtek.Model.Enum.EnumMonth,System.Int32)">
+            <summary>
+            Получите набор отчетов
+            </summary>
+            <param name="userId">Идентификатор пользователя</param>
+            <param name="year">Номер года</param>
+            <param name="month">Номер месяца</param>
+        </member>
+        <member name="M:Komtek.Controllers.ReportsController.Post(Komtek.Model.DateBase.Report)">
+            <summary>
+            Добавьте новый отчет
+            </summary>
+            <param name="Report">Информация об отчете</param>
+        </member>
+        <member name="M:Komtek.Controllers.ReportsController.Put(Komtek.Model.DateBase.Report)">
+            <summary>
+            Измените конкретный отчет
+            </summary>
+            <param name="Report">Информация об отчете</param>
+        </member>
+        <member name="M:Komtek.Controllers.ReportsController.Delete(System.Int32)">
+             <summary>
+             Удалите конкретный отчет
+             </summary>
+             <remarks>
+             Пример запроса:
+            
+                 DELETE api/reports/1
+            
+             </remarks>
+             <param name="id">Идентификатор отчета</param>
+        </member>
+        <member name="T:Komtek.Controllers.UsersController">
+            <summary>
+            Область работы с пользователями
+            </summary>
+        </member>
+        <member name="M:Komtek.Controllers.UsersController.Get">
+            <summary>
+            Получите набор пользователей
+            </summary>
+        </member>
+        <member name="M:Komtek.Controllers.UsersController.Post(Komtek.Model.DateBase.User)">
+            <summary>
+            Добавьте нового пользователя
+            </summary>
+            <param name="User">Информация о пользователе</param>
+        </member>
+        <member name="M:Komtek.Controllers.UsersController.Put(Komtek.Model.DateBase.User)">
+            <summary>
+            Измените информацию об отдельном пользователе
+            </summary>
+            <param name="User">Информация о пользователе</param>
+        </member>
+        <member name="M:Komtek.Controllers.UsersController.Delete(System.Int32)">
+             <summary>
+             Удалите пользователя
+             </summary>
+             <remarks>
+             Пример запроса:
+            
+                 DELETE api/users/1
+            
+             </remarks>
+             <param name="id">Идентификатор пользователя</param>
+        </member>
+    </members>
+</doc>

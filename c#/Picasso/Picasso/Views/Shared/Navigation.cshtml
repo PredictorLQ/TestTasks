@@ -1,0 +1,30 @@
+﻿@model Navigation
+@if (Model.CountAll > Model.CountView)
+{
+    <nav class="mt-4">
+        <ul class="pagination justify-content-center">
+            @if (Model.ArrowLast)
+            {
+                int lastpage = Model.Page - 1;
+                <li class="page-item">
+                    <label class="page-link arrow-last cursor-pointer" aria-label="Previous" data-page="@lastpage">
+                        <span aria-hidden="true">&laquo;</span>
+                    </label>
+                </li>
+            }
+            @for (int i = Model.StartPage; i <= Model.EndPage; i++)
+            {
+                <li class="page-item @(i==Model.Page?"active":"")"><label class="page-link cursor-pointer" data-page="@i">@i</label></li>
+            }
+            @if (Model.ArrowWill)
+            {
+                int nextpage = Model.Page + 1;
+                <li class="page-item">
+                    <label class="page-link arrow-next cursor-pointer" aria-label="Next" data-page="@nextpage">
+                        <span aria-hidden="true">&raquo;</span>
+                    </label>
+                </li>
+            }
+        </ul>
+    </nav>
+}
