@@ -1,31 +1,81 @@
-﻿using System;
-using System.IO;
+﻿using Microsoft.Extensions.Logging;
+using System;
+using System.Threading;
+using System.Threading.Tasks;
 
-namespace FilesCleaner
+namespace FilesCleaner;
+
+public class Program
 {
-    public sealed class Program
-    {
-        private const string _pathToDirectory = "";
+	private const String directoryPath = "./data";
 
-        static void Main(string[] args)
-        {
-            if (args.Length < 1 || string.IsNullOrWhiteSpace(args[0]))
-                throw new Exception("First argument not found or empty!");
+	static async Task Main(string[] _)
+	{
+		ILoggerFactory loggerFactory = LoggerFactory.Create(builder =>
+		{
+			builder.ClearProviders();
+			builder.AddSimpleConsole(options =>
+			{
+				options.IncludeScopes = true;
+				options.SingleLine = true;
+				options.TimestampFormat = "yyyy-MM-dd hh:mm:ss ";
+			}).SetMinimumLevel(LogLevel.Information);
+		});
 
-            if(!DateTime.TryParse(args[0], out var deathDateUtc))
-                throw new Exception($"First argument {args[0]} has a invalid date's format!");
+		ILogger<Program> programmLogger = loggerFactory.CreateLogger<Program>();
 
-            var startPath = Path.Combine(Environment.CurrentDirectory, _pathToDirectory);
+		programmLogger.LogInformation("Run app");
 
-            if(!Directory.Exists(startPath))
-                throw new Exception($"Directory by path {startPath} not found!");
+		TimeSpan fileLifetimeDuration = TimeSpan.FromSeconds(Int32.Parse(Environment.GetEnvironmentVariable("FILE_LIFETIME_DURATION_IN_SECONDS") ?? "600"));
+		TimeSpan raceSleepDuration = TimeSpan.FromHours(Int32.Parse(Environment.GetEnvironmentVariable("RACE_SLEEP_DURATION_IN_HOURS") ?? "6"));
 
-            var storage = new Storage();
-            var reader = new Reader(startPath, storage);
-            var cleaner = new Cleaner(deathDateUtc, storage);
+		SelectelHttpApi selectelHttpApi = new SelectelHttpApi(
+			new(
+				accountNumber: Environment.GetEnvironmentVariable("SELECTEL_CLOUD_STORAGE_API_ACCOUNT_NUMBER") ?? "",
+				payloadUser: Environment.GetEnvironmentVariable("SELECTEL_CLOUD_STORAGE_API_PAYLOAD_USER") ?? "",
+				payloadPassword: Environment.GetEnvironmentVariable("SELECTEL_CLOUD_STORAGE_API_PAYLOAD_PASSWORD") ?? "",
+				payloadContainer: Environment.GetEnvironmentVariable("SELECTEL_CLOUD_STORAGE_API_PAYLOAD_CONTAINER") ?? ""
+			),
+			loggerFactory.CreateLogger<SelectelHttpApi>()
+		);
 
-            reader.Handle();
-            cleaner.Handle();
-        }
-    }
+		SelectelFileUploader selectelUploader = new SelectelFileUploader(
+			selectelHttpApi,
+			loggerFactory.CreateLogger<SelectelFileUploader>()
+		);
+
+		IFileUploader fileUploader = selectelUploader;
+
+		IFileManager fileManager = new FileManager(
+			loggerFactory.CreateLogger<FileManager>()
+		);
+
+		IFolderReader fileReader = new FolderReader(
+			fileManager,
+			loggerFactory.CreateLogger<FolderReader>()
+		);
+
+		IFolderCleaner fileCleaner = new FolderCleaner(
+			fileManager,
+			fileUploader,
+			loggerFactory.CreateLogger<FolderCleaner>()
+		);
+
+		while (true)
+		{
+			programmLogger.LogInformation("Run race");
+
+			DateTimeOffset minFileCreationDateTime = DateTimeOffset.UtcNow.AddSeconds(-fileLifetimeDuration.TotalSeconds);
+
+			await selectelUploader.Initialize();
+
+			FileSystemObject @object = await fileReader.Read(directoryPath);
+
+			await fileCleaner.Clean(@object, minFileCreationDateTime, true);
+
+			programmLogger.LogInformation("Sleep race on {raceSleepDuration} before {raceAwakDuration}", raceSleepDuration, DateTimeOffset.UtcNow.Add(raceSleepDuration));
+
+			Thread.Sleep(raceSleepDuration);
+		}
+	}
 }
