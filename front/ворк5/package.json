@@ -1,0 +1,22 @@
+{
+  "name": "work5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "scss": "gulp sass"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^5.1.0",
+    "node-sass": "^8.0.0",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-csso": "^4.0.1"
+  },
+  "dependencies": {
+    "sass": "^1.59.3"
+  }
+}

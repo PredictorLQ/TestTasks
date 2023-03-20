@@ -1,0 +1,38 @@
+html {
+    font-family: 'Roboto';
+    color: #343434;
+    font-size: 14px;
+}
+
+* {
+    font-weight: 500;
+}
+
+a {
+    color: #6666CC;
+}
+
+.body {
+    min-height: 100vh;
+    overflow: hidden;
+
+    @media (min-width: 760px) and (max-width:980px) {
+        grid-template-columns: 130px 1fr;
+    }
+
+    @media (min-width: 980px) {
+        grid-template-columns: 256px 1fr;
+    }
+
+    @media (min-width:760px) {
+        display: grid;
+    }
+}
+
+.color-gray {
+    color: #6E6E6E;
+}
+
+.pointer {
+    cursor: pointer;
+}

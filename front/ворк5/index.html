@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/site.css" />
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="body">
+        <div class="menu">
+            <div class="menu-logo">
+                <img src="img/logo.png" alt="" />
+            </div>
+
+            <input class="menu-btn" type="checkbox" id="menu-btn" name="menu-btn" />
+            <label class="menu-icon" for="menu-btn">
+                <span class="navicon" />
+            </label>
+
+            <ul class="menu-list p-0 m-0">
+                <li class="menu-list-item position-relative d-flex flex-row">
+                    <div class="d-flex align-items-center">
+                        <div class="d-flex align-items-center justify-content-center">
+                            <img class="menu-list-item__img" src="img/menu/house.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="menu-list-item__text">Главная</div>
+                </li>
+                <li class="menu-list-item position-relative d-flex flex-row active">
+                    <div class="d-flex align-items-center">
+                        <div class="d-flex align-items-center justify-content-center">
+                            <img class="menu-list-item__img" src="img/menu/shop.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="menu-list-item__text">Мои магазины</div>
+                </li>
+
+                <li class="menu-list-item position-relative d-flex flex-row">
+                    <div class="d-flex align-items-center">
+                        <div class="d-flex align-items-center justify-content-center">
+                            <img class="menu-list-item__img" src="img/menu/material.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="menu-list-item__text">Промоматериалы</div>
+                </li>
+                <li class="menu-list-item position-relative d-flex flex-row">
+                    <div class="d-flex align-items-center">
+                        <div class="d-flex align-items-center justify-content-center">
+                            <img class="menu-list-item__img" src="img/menu/static.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="menu-list-item__text">Статистика</div>
+                </li>
+                <li class="menu-list-item position-relative d-flex flex-row">
+                    <div class="d-flex align-items-center">
+                        <div class="d-flex align-items-center justify-content-center">
+                            <img class="menu-list-item__img" src="img/menu/balance.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="menu-list-item__text">Баланс</div>
+                </li>
+                <li class="menu-list-item position-relative d-flex flex-row">
+                    <div class="d-flex align-items-center">
+                        <div class="d-flex align-items-center justify-content-center">
+                            <img class="menu-list-item__img" src="img/menu/avatar.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="menu-list-item__text">Персональные данные</div>
+                </li>
+                <li class="menu-list-item position-relative d-flex flex-row">
+                    <div class="d-flex align-items-center">
+                        <div class="d-flex align-items-center justify-content-center">
+                            <img class="menu-list-item__img" src="img/menu/faq.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="menu-list-item__text">FAQ</div>
+                </li>
+                <li class="menu-list-item position-relative d-flex flex-row">
+                    <div class="d-flex align-items-center">
+                        <div class="d-flex align-items-center justify-content-center">
+                            <img class="menu-list-item__img" src="img/menu/tech.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="menu-list-item__text">Техподдержка</div>
+                </li>
+                <li class="menu-list-item position-relative d-flex flex-row">
+                    <div class="d-flex align-items-center">
+                        <div class="d-flex align-items-center justify-content-center">
+                            <img class="menu-list-item__img" src="img/menu/out.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="menu-list-item__text">Выход</div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <div class="content-header">
+                <div class="d-flex align-items-center content-header-nav">Главная <span class="ml-1 mr-1">></span> Мои
+                    магазины</div>
+                <div class="d-flex">
+                    <div class="content-header-message d-flex align-items-center justify-content-center">
+                        <div class="content-header-message__img active d-flex">
+                            <img src="img/message.png" />
+                        </div>
+                    </div>
+                    <div class="content-header-profile d-flex align-items-center ml-3">
+                        <div class="content-header-profile__img rounded-circle mr-3">
+                            <img src="img/user.png" />
+                        </div>
+                        <div class="content-header-profile__name">Максим Добжанский</div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-body mt-3 mt-md-0">
+                <button class="btn btn-success border-0 content-btn d-flex align-items-center" data-toggle="modal"
+                    data-target="#createShop"><span>+</span> Создать свой магазин</button>
+
+                <h1 class="content-body-title">Управление магазинами</h1>
+                <div class="content-body-data overflow-auto">
+                    <table class="table-index">
+                        <thead>
+                            <tr>
+                                <th>№</th>
+                                <th>Название</th>
+                                <th>Адрес</th>
+                                <th>Действие</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>12345</td>
+                                <td>
+                                    <div>Дипломная работа</div>
+                                </td>
+                                <td>
+                                    <div>
+                                        http://www.work5.ru/services
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="settings">
+                                        <button
+                                            class="btn btn-lg btn-success border-0 content-btn d-flex align-items-center">
+                                            <img src="img/pencil.png" />
+                                            Редактировать
+                                        </button>
+
+                                        <button
+                                            class="btn btn-lg btn-secondary border-0 content-btn d-flex align-items-center">
+                                            <img src="img/cansel.svg" />
+                                            Редактировать
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>12345</td>
+                                <td>
+                                    <div>Дипломная работа</div>
+                                </td>
+                                <td>
+                                    <div>
+                                        http://www.work5.ru/services
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="settings">
+                                        <button
+                                            class="btn btn-lg btn-success border-0 content-btn d-flex align-items-center">
+                                            <img src="img/pencil.png" />
+                                            Редактировать
+                                        </button>
+
+                                        <button
+                                            class="btn btn-lg btn-secondary border-0 content-btn d-flex align-items-center">
+                                            <img src="img/cansel.svg" />
+                                            Редактировать
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="createShop" tabindex="-1" role="dialog" aria-labelledby="createShopCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="createShopLongTitle">Создать магазин</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <img src="img/close.svg" />
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-create">
+                        <div class="modal-create-table">
+                            <div>
+                                <label class="mb-1">Шаблон</label>
+                                <select class="form-control">
+                                    <option value="Стандартный" selected>Стандартный</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="mb-1">Цветовая схема</label>
+                                <select class="form-control">
+                                    <option value="Стандартный" selected>Классическая</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="modal-create-domain">
+                            <label class="mb-1">Домен</label>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Например: ivangrozniy"
+                                    aria-label="Например: ivangrozniy" aria-describedby="createShop-addon2">
+                                <div class="input-group-append">
+                                    <span class="input-group-text" id="createShop-addon2">.work5.ru</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-create-info">
+                            <div class="d-flex align-items-center justify-content-center">
+                                <img src="img/warning.svg" />
+                            </div>
+                            <div>В названии домена разрешены латиница и “-”, запрещается использовать словосочетание
+                                Work 5. После создания магазина Вы
+                                сможете прикрутить свой домен (например ivangrozniy.ru). Подробнее по <a
+                                    href="#">ссылке</a></div>
+                        </div>
+                    </div>
+
+
+                    <button class="btn btn-secondary content-btn border-0 mr-2" data-dismiss="modal">Отмена</button>
+                    <button class="btn btn-success content-btn border-0">Создать</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

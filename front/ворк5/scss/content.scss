@@ -1,0 +1,176 @@
+.content {
+    padding: 22px 16px 16px 16px;
+    background: #F8FAFF;
+
+    @media (min-width: 760px) and (max-width:980px) {
+        padding: 22px 16px 16px 22px;
+    }
+
+    @media (min-width:980px) {
+        padding: 22px 16px 16px 59px;
+    }
+
+    &-header {
+        display: grid;
+
+        @media (min-width: 576px) {
+            grid-template-columns: 1fr auto;
+        }
+
+        @media (max-width: 576px) {
+            grid-template-rows: auto auto;
+            grid-row-gap: 8px;
+        }
+
+        &-nav {
+            color: #656565;
+            font-size: 12px;
+        }
+
+        &-message {
+            width: 65px;
+            height: 65px;
+            border: 1px solid #D4D4D4;
+
+            &__img {
+                position: relative;
+                height: 18px;
+                display: flex;
+
+                &.active {
+                    &::after {
+                        position: absolute;
+                        content: "";
+                        width: 7px;
+                        height: 7px;
+                        border-radius: 50%;
+                        top: -4px;
+                        right: -4px;
+                        z-index: 10;
+                        background: #E42626;
+                        outline: 3px solid #FFFFFF;
+                    }
+                }
+
+                img {
+                    height: 100%;
+                }
+            }
+        }
+
+        &-profile {
+            background: #FFFFFF;
+            box-shadow: 0px 0px 16px rgba(136, 167, 245, 0.18);
+            padding-left: 17px;
+            padding-right: 7px;
+            min-width: 256px;
+
+            &__img {
+                border: 2px solid #D9D9D9;
+                width: 45px;
+                height: 45px;
+                overflow: hidden;
+            }
+
+            &__name {
+                color: #7D7D7D;
+            }
+        }
+    }
+
+    &-btn {
+        color: #FFFFFF;
+        font-size: 12px;
+        font-weight: 400;
+        min-height: 36px;
+
+        span {
+            font-weight: 700;
+            font-size: 20px;
+            margin-right: 12px;
+            margin-top: -4px;
+        }
+
+        img {
+            margin-right: 16px;
+        }
+
+        &.btn-success {
+            background: #55C97B;
+        }
+
+        &.btn-secondary {
+            background: #B1B1B1;
+        }
+    }
+
+    &-body {
+
+        &-title {
+            font-size: 20px;
+            color: #343434;
+            margin-bottom: 25px;
+            margin-top: 35px;
+        }
+
+        &-data {
+            background: #FFFFFF;
+            box-shadow: 0px 11px 21px rgba(40, 40, 40, 0.07);
+            padding: 26px 30px 14px 30px;
+            border-radius: 8px;
+
+            @media (min-width:1200px) {
+                width: 92%;
+            }
+
+            @media (min-width:760px) and (max-width:1200px) {
+                max-width: calc(100vw - 171px);
+            }
+
+            @media (max-width:760px) {
+                max-width: 92vw;
+            }
+
+            table {
+                width: 100%;
+
+                thead th {
+                    border: none !important;
+                    padding-bottom: 7px;
+                }
+
+                tbody {
+                    tr {
+                        &+tr {
+                            td {
+                                border-top: 1px solid #D4D4D4;
+                            }
+                        }
+                    }
+
+                    td {
+                        color: #6E6E6E;
+                        padding-top: 19px;
+                        padding-bottom: 19px;
+
+                        &:not(:first-child) {
+                            padding-left: 8px;
+                        }
+
+
+                        &:not(:last-child) {
+                            padding-right: 8px;
+                        }
+
+
+                        .settings {
+                            display: grid;
+                            grid-template-columns: repeat(2, 1fr);
+                            grid-column-gap: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
