@@ -1,0 +1,192 @@
+/* БЭМ методология */
+/* Использование rem вместо px */
+/* Резиновая верстка с Grid и Flex */
+
+/* Блок: umbrella-body */
+.umbrella-body {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+/* Блок: umbrella-container */
+.umbrella-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 100%;
+}
+
+/* Блок: umbrella-header */
+.umbrella-header {
+  background-color: #1e293b;
+  color: #fff;
+  padding: 1.5rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+}
+
+.umbrella-header__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 90rem;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.umbrella-header__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.umbrella-header__nav {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.umbrella-header__link {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.umbrella-header__link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Блок: umbrella-main */
+.umbrella-main {
+  flex: 1;
+  padding: 2rem;
+  max-width: 90rem;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Блок: umbrella-section */
+.umbrella-section {
+  margin-bottom: 3rem;
+}
+
+.umbrella-section__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #1e293b;
+}
+
+.umbrella-section__content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Блок: umbrella-button */
+.umbrella-button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+}
+
+.umbrella-button--primary {
+  background-color: #3b82f6;
+  color: #fff;
+}
+
+.umbrella-button--primary:hover {
+  background-color: #2563eb;
+}
+
+.umbrella-button--primary:active {
+  transform: scale(0.98);
+}
+
+.umbrella-button--secondary {
+  background-color: #64748b;
+  color: #fff;
+}
+
+.umbrella-button--secondary:hover {
+  background-color: #475569;
+}
+
+/* Блок: umbrella-reports */
+.umbrella-reports {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  gap: 1.5rem;
+}
+
+/* Блок: umbrella-scheduled */
+.umbrella-scheduled {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  gap: 1.5rem;
+}
+
+/* Блок: umbrella-datasources */
+.umbrella-datasources {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  gap: 1.5rem;
+}
+
+/* Элемент: umbrella-card */
+.umbrella-card {
+  background-color: #fff;
+  border: 0.0625rem solid #e2e8f0;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
+}
+
+.umbrella-card:hover {
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+.umbrella-card__title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #1e293b;
+}
+
+.umbrella-card__description {
+  color: #64748b;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+}
+
+.umbrella-card__actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+/* Адаптивность */
+@media (max-width: 48rem) {
+  .umbrella-header__content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .umbrella-reports,
+  .umbrella-scheduled,
+  .umbrella-datasources {
+    grid-template-columns: 1fr;
+  }
+}
+

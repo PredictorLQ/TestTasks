@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umbrella - Система отчетности</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="umbrella-body">
+    <div class="umbrella-container">
+        <header class="umbrella-header">
+            <div class="umbrella-header__content">
+                <h1 class="umbrella-header__title">Umbrella</h1>
+                <nav class="umbrella-header__nav">
+                    <a href="#reports" class="umbrella-header__link">Отчеты</a>
+                    <a href="#scheduled" class="umbrella-header__link">Планировщик</a>
+                    <a href="#datasources" class="umbrella-header__link">Источники данных</a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="umbrella-main">
+            <section class="umbrella-section" id="reports">
+                <h2 class="umbrella-section__title">Отчеты</h2>
+                <div class="umbrella-section__content">
+                    <button class="umbrella-button umbrella-button--primary" id="uploadReportBtn">
+                        Загрузить отчет
+                    </button>
+                    <div class="umbrella-reports" id="reportsList">
+                        <!-- Список отчетов будет загружен через JS -->
+                    </div>
+                </div>
+            </section>
+
+            <section class="umbrella-section" id="scheduled">
+                <h2 class="umbrella-section__title">Планировщик отчетов</h2>
+                <div class="umbrella-section__content">
+                    <button class="umbrella-button umbrella-button--primary" id="createScheduledBtn">
+                        Создать задание
+                    </button>
+                    <div class="umbrella-scheduled" id="scheduledList">
+                        <!-- Список запланированных отчетов будет загружен через JS -->
+                    </div>
+                </div>
+            </section>
+
+            <section class="umbrella-section" id="datasources">
+                <h2 class="umbrella-section__title">Источники данных</h2>
+                <div class="umbrella-section__content">
+                    <button class="umbrella-button umbrella-button--primary" id="createDataSourceBtn">
+                        Добавить источник данных
+                    </button>
+                    <div class="umbrella-datasources" id="datasourcesList">
+                        <!-- Список источников данных будет загружен через JS -->
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
+
