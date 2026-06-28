@@ -1,0 +1,33 @@
+@OrderTrackingApplication_HostAddress = http://localhost:5080
+
+### Создать заказ
+POST {{OrderTrackingApplication_HostAddress}}/api/orders
+Content-Type: application/json
+
+{
+  "orderNumber": "ORD-001",
+  "description": "Тестовый заказ"
+}
+
+### Получить все заказы
+GET {{OrderTrackingApplication_HostAddress}}/api/orders
+
+### Получить заказ по Id
+GET {{OrderTrackingApplication_HostAddress}}/api/orders/{{orderId}}
+
+### Получить заказ по номеру
+GET {{OrderTrackingApplication_HostAddress}}/api/orders/by-number/ORD-001
+
+### Изменить статус заказа
+PATCH {{OrderTrackingApplication_HostAddress}}/api/orders/{{orderId}}/status
+Content-Type: application/json
+
+{
+  "status": "Sent"
+}
+
+### SSE подписка на изменения статуса
+GET {{OrderTrackingApplication_HostAddress}}/api/ordernotifications/stream
+
+### SSE подписка на конкретный заказ
+GET {{OrderTrackingApplication_HostAddress}}/api/ordernotifications/stream?orderId={{orderId}}
